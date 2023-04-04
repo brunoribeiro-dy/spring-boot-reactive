@@ -29,10 +29,10 @@ public class DemoController {
 
 
     @GetMapping("/{feedId}")
-    public Mono<ResponseEntity<Feed>> getAgent(@PathVariable long feedId) {
+    public Mono<ResponseEntity<Feed>> getFeed(@PathVariable long feedId) {
         return service
                 .getFeed(feedId)
-                .map(agent -> new ResponseEntity<>(agent, HttpStatus.OK))
+                .map(feed -> new ResponseEntity<>(feed, HttpStatus.OK))
                 .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
